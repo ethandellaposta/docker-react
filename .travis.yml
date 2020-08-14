@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t edellaposta/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true edellaposta/docker-react npm run test
